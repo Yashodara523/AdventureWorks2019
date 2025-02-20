@@ -1,0 +1,2211 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/20/2025 4:03:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-GBK6LAO5"
+  DTS:CreatorName="LAPTOP-GBK6LAO5\user"
+  DTS:DTSID="{833FD9AF-1CE9-46A8-A3CC-FDD86CE709E0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Increment_ETL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{DF51B5D8-79E2-484E-9E78-25B0A9FBADD0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-GBK6LAO5.AdventureWorks2019]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D13EB690-0E79-4E5E-B6C7-F21FBE18C58A}"
+      DTS:ObjectName="LAPTOP-GBK6LAO5.AdventureWorks2019">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-GBK6LAO5;Initial Catalog=AdventureWorks2019;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Increment_ETL-{D13EB690-0E79-4E5E-B6C7-F21FBE18C58A}LAPTOP-GBK6LAO5.AdventureWorks2019;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-GBK6LAO5.AW_STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6FD723C8-2575-4130-951B-9C692269A474}"
+      DTS:ObjectName="LAPTOP-GBK6LAO5.AW_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-GBK6LAO5;Initial Catalog=AW_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Increment_ETL-{6FD723C8-2575-4130-951B-9C692269A474}LAPTOP-GBK6LAO5.AW_STAGE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5B923ED6-EFCB-4009-81E9-4755542EFDD2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="IsFirsttime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Expression Task"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{3D64A974-C9CA-4821-88DF-3B5D2B3DA2DF}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Expression Task"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="1==1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Full or First"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{15C90B5B-1464-4168-B927-53E108A00869}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Full or First">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Full or First\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B8D19E65-4305-4D81-B293-47F8B4F33685}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6FD723C8-2575-4130-951B-9C692269A474}"
+              SQLTask:SqlStatementSource="Truncate table [Sales].[SalesOrderDetail]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Full or First\Execute SQL Task 1"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CFC3245E-E97D-4056-B397-BDFCAB7B9A83}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task 1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6FD723C8-2575-4130-951B-9C692269A474}"
+              SQLTask:SqlStatementSource="Truncate table [Sales].[SalesOrderHeader]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Full or First\SalesOrderDetails"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A3F43A42-DC95-4CC0-97C7-767D1768D9D0}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SalesOrderDetails"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Full or First\SalesOrderDetails\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Full or First\SalesOrderDetails\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Full or First\SalesOrderDetails\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Full or First\SalesOrderDetails\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\Derived Column.Outputs[Derived Column Output].Columns[SSISTrackID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Full or First\SalesOrderDetails\Derived Column.Outputs[Derived Column Output].Columns[SSISTrackID]"
+                          name="SSISTrackID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[System::ServerExecutionID]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[System::ServerExecutionID]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Full or First\SalesOrderDetails\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Full or First\SalesOrderDetails\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderDetails\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderDetails\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Full or First\SalesOrderDetails\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[SalesOrderDetail]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-GBK6LAO5.AW_STAGE]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-GBK6LAO5.AW_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesOrderID]"
+                          cachedDataType="i4"
+                          cachedName="SalesOrderID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesOrderDetailID]"
+                          cachedDataType="i4"
+                          cachedName="SalesOrderDetailID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderDetailID]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderDetailID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CarrierTrackingNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="CarrierTrackingNumber"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CarrierTrackingNumber]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrderQty]"
+                          cachedDataType="i2"
+                          cachedName="OrderQty"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderQty]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQty]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                          cachedDataType="i4"
+                          cachedName="ProductID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SpecialOfferID]"
+                          cachedDataType="i4"
+                          cachedName="SpecialOfferID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SpecialOfferID]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[SpecialOfferID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                          cachedDataType="cy"
+                          cachedName="UnitPrice"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnitPriceDiscount]"
+                          cachedDataType="cy"
+                          cachedName="UnitPriceDiscount"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPriceDiscount]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscount]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LineTotal]"
+                          cachedDataType="numeric"
+                          cachedName="LineTotal"
+                          cachedPrecision="38"
+                          cachedScale="6"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LineTotal]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[LineTotal]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rowguid]"
+                          cachedDataType="guid"
+                          cachedName="rowguid"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ModifiedDate"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SSISTrackID]"
+                          cachedDataType="i8"
+                          cachedName="SSISTrackID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SSISTrackId]"
+                          lineageId="Package\Full or First\SalesOrderDetails\Derived Column.Outputs[Derived Column Output].Columns[SSISTrackID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                          dataType="i4"
+                          name="SalesOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderDetailID]"
+                          dataType="i4"
+                          name="SalesOrderDetailID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="CarrierTrackingNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderQty]"
+                          dataType="i2"
+                          name="OrderQty" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          dataType="i4"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SpecialOfferID]"
+                          dataType="i4"
+                          name="SpecialOfferID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                          dataType="cy"
+                          name="UnitPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPriceDiscount]"
+                          dataType="cy"
+                          name="UnitPriceDiscount" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LineTotal]"
+                          dataType="numeric"
+                          name="LineTotal"
+                          precision="38"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                          dataType="guid"
+                          name="rowguid" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          name="ModifiedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Created_Dt]"
+                          dataType="dbTimeStamp"
+                          name="Created_Dt" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SSISTrackId]"
+                          dataType="i4"
+                          name="SSISTrackId" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Full or First\SalesOrderDetails\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Sales].[SalesOrderDetail]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-GBK6LAO5.AdventureWorks2019]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-GBK6LAO5.AdventureWorks2019]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
+                          name="SalesOrderID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderDetailID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderDetailID]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderDetailID]"
+                          name="SalesOrderDetailID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CarrierTrackingNumber]"
+                          length="25"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]"
+                          name="CarrierTrackingNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQty]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderQty]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQty]"
+                          name="OrderQty"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          name="ProductID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[SpecialOfferID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SpecialOfferID]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[SpecialOfferID]"
+                          name="SpecialOfferID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                          name="UnitPrice"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscount]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPriceDiscount]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscount]"
+                          name="UnitPriceDiscount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[LineTotal]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LineTotal]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[LineTotal]"
+                          name="LineTotal"
+                          precision="38"
+                          scale="6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                          name="rowguid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          name="ModifiedDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
+                          dataType="i4"
+                          name="SalesOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderDetailID]"
+                          dataType="i4"
+                          name="SalesOrderDetailID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="CarrierTrackingNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderQty]"
+                          dataType="i2"
+                          name="OrderQty" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          dataType="i4"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SpecialOfferID]"
+                          dataType="i4"
+                          name="SpecialOfferID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                          dataType="cy"
+                          name="UnitPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPriceDiscount]"
+                          dataType="cy"
+                          name="UnitPriceDiscount" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LineTotal]"
+                          dataType="numeric"
+                          name="LineTotal"
+                          precision="38"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                          dataType="guid"
+                          name="rowguid" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          name="ModifiedDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
+                          name="SalesOrderID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderDetailID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderDetailID]"
+                          name="SalesOrderDetailID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CarrierTrackingNumber]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CarrierTrackingNumber]"
+                          name="CarrierTrackingNumber" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderQty]"
+                          dataType="i2"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderQty]"
+                          name="OrderQty" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          name="ProductID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SpecialOfferID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SpecialOfferID]"
+                          name="SpecialOfferID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                          dataType="cy"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                          name="UnitPrice" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPriceDiscount]"
+                          dataType="cy"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPriceDiscount]"
+                          name="UnitPriceDiscount" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LineTotal]"
+                          dataType="numeric"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LineTotal]"
+                          name="LineTotal"
+                          precision="38"
+                          scale="6" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                          dataType="guid"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                          name="rowguid" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          name="ModifiedDate" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Full or First\SalesOrderDetails.Paths[Derived Column Output]"
+                  endId="Package\Full or First\SalesOrderDetails\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Full or First\SalesOrderDetails\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Full or First\SalesOrderDetails.Paths[OLE DB Source Output]"
+                  endId="Package\Full or First\SalesOrderDetails\Derived Column.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Full or First\SalesOrderDetails\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Full or First\SalesOrderHeader"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E752CAF0-79E8-465D-A93E-24DEF38BE244}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SalesOrderHeader"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Full or First\SalesOrderHeader\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Full or First\SalesOrderHeader\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Full or First\SalesOrderHeader\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Full or First\SalesOrderHeader\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\Derived Column.Outputs[Derived Column Output].Columns[SSISTrackID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Full or First\SalesOrderHeader\Derived Column.Outputs[Derived Column Output].Columns[SSISTrackID]"
+                          name="SSISTrackID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[System::ServerExecutionID]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[System::ServerExecutionID]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Full or First\SalesOrderHeader\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Full or First\SalesOrderHeader\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Full or First\SalesOrderHeader\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[SalesHeader]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-GBK6LAO5.AW_STAGE]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-GBK6LAO5.AW_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesOrderID]"
+                          cachedDataType="i4"
+                          cachedName="SalesOrderID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RevisionNumber]"
+                          cachedDataType="ui1"
+                          cachedName="RevisionNumber"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevisionNumber]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrderDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="OrderDate"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DueDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DueDate"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDate]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ShipDate"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Status]"
+                          cachedDataType="ui1"
+                          cachedName="Status"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OnlineOrderFlag]"
+                          cachedDataType="bool"
+                          cachedName="OnlineOrderFlag"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OnlineOrderFlag]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OnlineOrderFlag]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesOrderNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="SalesOrderNumber"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseOrderNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="PurchaseOrderNumber"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOrderNumber]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderNumber]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AccountNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="AccountNumber"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountNumber]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountNumber]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                          cachedDataType="i4"
+                          cachedName="CustomerID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesPersonID]"
+                          cachedDataType="i4"
+                          cachedName="SalesPersonID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TerritoryID]"
+                          cachedDataType="i4"
+                          cachedName="TerritoryID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TerritoryID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BillToAddressID]"
+                          cachedDataType="i4"
+                          cachedName="BillToAddressID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BillToAddressID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToAddressID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipToAddressID]"
+                          cachedDataType="i4"
+                          cachedName="ShipToAddressID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipToAddressID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToAddressID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipMethodID]"
+                          cachedDataType="i4"
+                          cachedName="ShipMethodID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipMethodID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipMethodID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreditCardID]"
+                          cachedDataType="i4"
+                          cachedName="CreditCardID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreditCardApprovalCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CreditCardApprovalCode"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardApprovalCode]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardApprovalCode]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrencyRateID]"
+                          cachedDataType="i4"
+                          cachedName="CurrencyRateID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyRateID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyRateID]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SubTotal]"
+                          cachedDataType="cy"
+                          cachedName="SubTotal"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubTotal]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TaxAmt]"
+                          cachedDataType="cy"
+                          cachedName="TaxAmt"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Freight]"
+                          cachedDataType="cy"
+                          cachedName="Freight"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TotalDue]"
+                          cachedDataType="cy"
+                          cachedName="TotalDue"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalDue]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalDue]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Comment]"
+                          cachedDataType="wstr"
+                          cachedLength="128"
+                          cachedName="Comment"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rowguid]"
+                          cachedDataType="guid"
+                          cachedName="rowguid"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ModifiedDate"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                        <inputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SSISTrackID]"
+                          cachedDataType="i8"
+                          cachedName="SSISTrackID"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SSIS_ID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\Derived Column.Outputs[Derived Column Output].Columns[SSISTrackID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                          dataType="i4"
+                          name="SalesOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                          dataType="guid"
+                          name="rowguid" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          name="ModifiedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevisionNumber]"
+                          dataType="ui1"
+                          name="RevisionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          name="OrderDate" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDate]"
+                          dataType="dbTimeStamp"
+                          name="DueDate" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          name="ShipDate" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          dataType="ui1"
+                          name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OnlineOrderFlag]"
+                          dataType="bool"
+                          name="OnlineOrderFlag" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="SalesOrderNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOrderNumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="PurchaseOrderNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountNumber]"
+                          dataType="wstr"
+                          length="15"
+                          name="AccountNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                          dataType="i4"
+                          name="CustomerID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                          dataType="i4"
+                          name="SalesPersonID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                          dataType="i4"
+                          name="TerritoryID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BillToAddressID]"
+                          dataType="i4"
+                          name="BillToAddressID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipToAddressID]"
+                          dataType="i4"
+                          name="ShipToAddressID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipMethodID]"
+                          dataType="i4"
+                          name="ShipMethodID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardID]"
+                          dataType="i4"
+                          name="CreditCardID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardApprovalCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CreditCardApprovalCode" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyRateID]"
+                          dataType="i4"
+                          name="CurrencyRateID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                          dataType="cy"
+                          name="SubTotal" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                          dataType="cy"
+                          name="TaxAmt" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                          dataType="cy"
+                          name="Freight" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalDue]"
+                          dataType="cy"
+                          name="TotalDue" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                          dataType="wstr"
+                          length="128"
+                          name="Comment" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SSIS_ID]"
+                          dataType="i8"
+                          name="SSIS_ID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Full or First\SalesOrderHeader\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Sales].[SalesOrderHeader]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LAPTOP-GBK6LAO5.AdventureWorks2019]"
+                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-GBK6LAO5.AdventureWorks2019]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
+                          name="SalesOrderID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevisionNumber]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]"
+                          name="RevisionNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                          name="OrderDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDate]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]"
+                          name="DueDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                          name="ShipDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
+                          name="Status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OnlineOrderFlag]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OnlineOrderFlag]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[OnlineOrderFlag]"
+                          name="OnlineOrderFlag"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]"
+                          length="25"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                          name="SalesOrderNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseOrderNumber]"
+                          length="25"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderNumber]"
+                          name="PurchaseOrderNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountNumber]"
+                          length="15"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountNumber]"
+                          name="AccountNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                          name="CustomerID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                          name="SalesPersonID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TerritoryID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TerritoryID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TerritoryID]"
+                          name="TerritoryID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToAddressID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BillToAddressID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToAddressID]"
+                          name="BillToAddressID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToAddressID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipToAddressID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToAddressID]"
+                          name="ShipToAddressID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipMethodID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipMethodID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipMethodID]"
+                          name="ShipMethodID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardID]"
+                          name="CreditCardID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardApprovalCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardApprovalCode]"
+                          length="15"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardApprovalCode]"
+                          name="CreditCardApprovalCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyRateID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrencyRateID]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyRateID]"
+                          name="CurrencyRateID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubTotal]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubTotal]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubTotal]"
+                          name="SubTotal"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                          name="TaxAmt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Freight]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]"
+                          name="Freight"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalDue]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalDue]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalDue]"
+                          name="TotalDue"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]"
+                          length="128"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                          name="Comment"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                          name="rowguid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          name="ModifiedDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
+                          dataType="i4"
+                          name="SalesOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevisionNumber]"
+                          dataType="ui1"
+                          name="RevisionNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          name="OrderDate" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDate]"
+                          dataType="dbTimeStamp"
+                          name="DueDate" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          name="ShipDate" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                          dataType="ui1"
+                          name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OnlineOrderFlag]"
+                          dataType="bool"
+                          name="OnlineOrderFlag" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="SalesOrderNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseOrderNumber]"
+                          dataType="wstr"
+                          length="25"
+                          name="PurchaseOrderNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountNumber]"
+                          dataType="wstr"
+                          length="15"
+                          name="AccountNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                          dataType="i4"
+                          name="CustomerID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                          dataType="i4"
+                          name="SalesPersonID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TerritoryID]"
+                          dataType="i4"
+                          name="TerritoryID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BillToAddressID]"
+                          dataType="i4"
+                          name="BillToAddressID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipToAddressID]"
+                          dataType="i4"
+                          name="ShipToAddressID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipMethodID]"
+                          dataType="i4"
+                          name="ShipMethodID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardID]"
+                          dataType="i4"
+                          name="CreditCardID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardApprovalCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CreditCardApprovalCode" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrencyRateID]"
+                          dataType="i4"
+                          name="CurrencyRateID" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubTotal]"
+                          dataType="cy"
+                          name="SubTotal" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]"
+                          dataType="cy"
+                          name="TaxAmt" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Freight]"
+                          dataType="cy"
+                          name="Freight" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalDue]"
+                          dataType="cy"
+                          name="TotalDue" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]"
+                          dataType="wstr"
+                          length="128"
+                          name="Comment" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                          dataType="guid"
+                          name="rowguid" />
+                        <externalMetadataColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          name="ModifiedDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
+                          name="SalesOrderID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevisionNumber]"
+                          dataType="ui1"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevisionNumber]"
+                          name="RevisionNumber" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                          name="OrderDate" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDate]"
+                          name="DueDate" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                          name="ShipDate" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
+                          dataType="ui1"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
+                          name="Status" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OnlineOrderFlag]"
+                          dataType="bool"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OnlineOrderFlag]"
+                          name="OnlineOrderFlag" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                          name="SalesOrderNumber" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseOrderNumber]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseOrderNumber]"
+                          name="PurchaseOrderNumber" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountNumber]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountNumber]"
+                          name="AccountNumber" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                          name="CustomerID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                          name="SalesPersonID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
+                          name="TerritoryID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BillToAddressID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BillToAddressID]"
+                          name="BillToAddressID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipToAddressID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipToAddressID]"
+                          name="ShipToAddressID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipMethodID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipMethodID]"
+                          name="ShipMethodID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardID]"
+                          name="CreditCardID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardApprovalCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardApprovalCode]"
+                          name="CreditCardApprovalCode" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrencyRateID]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrencyRateID]"
+                          name="CurrencyRateID" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubTotal]"
+                          dataType="cy"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubTotal]"
+                          name="SubTotal" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                          dataType="cy"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                          name="TaxAmt" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                          dataType="cy"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                          name="Freight" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalDue]"
+                          dataType="cy"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalDue]"
+                          name="TotalDue" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                          dataType="wstr"
+                          length="128"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                          name="Comment" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                          dataType="guid"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                          name="rowguid" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          name="ModifiedDate" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Full or First\SalesOrderHeader.Paths[Derived Column Output]"
+                  endId="Package\Full or First\SalesOrderHeader\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Full or First\SalesOrderHeader\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Full or First\SalesOrderHeader.Paths[OLE DB Source Output]"
+                  endId="Package\Full or First\SalesOrderHeader\Derived Column.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Full or First\SalesOrderHeader\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Full or First.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A58F3EBB-7B93-48CC-BDFD-5061B8646F05}"
+          DTS:From="Package\Full or First\Execute SQL Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Full or First\SalesOrderHeader" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Full or First.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{0FD04738-9B2B-4451-A1FC-A49F0FF59E9A}"
+          DTS:From="Package\Full or First\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Full or First\SalesOrderDetails" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0F3B188A-4D86-4E10-AD88-7CCA789E03BE}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[$Project::IsFirsttime]==1"
+      DTS:From="Package\Expression Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Full or First" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Expression Task"
+          TopLeft="40,31" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Full or First\Execute SQL Task"
+          TopLeft="63.5,5.5" />
+        <EdgeLayout
+          Id="Package\Full or First.PrecedenceConstraints[Constraint 1]"
+          TopLeft="145,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-58.5,62"
+              Start="0,0"
+              End="-58.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="-4,31" />
+                  <mssgle:LineSegment
+                    End="-54.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.5,31"
+                    Point2="-58.5,31"
+                    Point3="-58.5,35" />
+                  <mssgle:LineSegment
+                    End="-58.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Full or First\SalesOrderDetails"
+          TopLeft="5.5,109.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Full or First\SalesOrderHeader"
+          TopLeft="238,108" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Full or First\Execute SQL Task 1"
+          TopLeft="285,5" />
+        <EdgeLayout
+          Id="Package\Full or First.PrecedenceConstraints[Constraint]"
+          TopLeft="371,47">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-51,61"
+              Start="0,0"
+              End="-51,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="-4,30.5" />
+                  <mssgle:LineSegment
+                    End="-47,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-47,30.5"
+                    Point2="-51,30.5"
+                    Point3="-51,34.5" />
+                  <mssgle:LineSegment
+                    End="-51,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="462,215"
+          Size="462,258"
+          Id="Package\Full or First"
+          TopLeft="373.75,228.25" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="117.5,73">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="487.25,155.25"
+              Start="0,0"
+              End="487.25,147.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,73.625"
+                    Point2="0,77.625"
+                    Point3="4,77.625" />
+                  <mssgle:LineSegment
+                    End="483.25,77.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="483.25,77.625"
+                    Point2="487.25,77.625"
+                    Point3="487.25,81.625" />
+                  <mssgle:LineSegment
+                    End="487.25,147.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="235.625,82.625,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Full or First\SalesOrderDetails">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Full or First\SalesOrderDetails\Derived Column"
+          TopLeft="75,84" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Full or First\SalesOrderDetails\OLE DB Source"
+          TopLeft="74,21" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Full or First\SalesOrderDetails\OLE DB Destination"
+          TopLeft="130,147" />
+        <EdgeLayout
+          Id="Package\Full or First\SalesOrderDetails.Paths[OLE DB Source Output]"
+          TopLeft="74,42">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="1,63"
+              Start="0,0"
+              End="-6.5,63">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,59" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,59"
+                    Point2="-22.5,63"
+                    Point3="-18.5,63" />
+                  <mssgle:LineSegment
+                    End="-6.5,63" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Full or First\SalesOrderDetails.Paths[Derived Column Output]"
+          TopLeft="229,105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.5,42"
+              Start="0,0"
+              End="-13.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-9.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.5,0"
+                    Point2="-13.5,0"
+                    Point3="-13.5,4" />
+                  <mssgle:LineSegment
+                    End="-13.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Full or First\SalesOrderDetails\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Full or First\SalesOrderDetails\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Full or First\SalesOrderHeader">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Full or First\SalesOrderHeader\Derived Column"
+          TopLeft="218,61" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Full or First\SalesOrderHeader\OLE DB Source"
+          TopLeft="33,35" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Full or First\SalesOrderHeader\OLE DB Destination"
+          TopLeft="251,167" />
+        <EdgeLayout
+          Id="Package\Full or First\SalesOrderHeader.Paths[OLE DB Source Output]"
+          TopLeft="183,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35,26"
+              Start="0,0"
+              End="27.5,26">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="13.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,0"
+                    Point2="17.5,0"
+                    Point3="17.5,4" />
+                  <mssgle:LineSegment
+                    End="17.5,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.5,22"
+                    Point2="17.5,26"
+                    Point3="21.5,26" />
+                  <mssgle:LineSegment
+                    End="27.5,26" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Full or First\SalesOrderHeader.Paths[Derived Column Output]"
+          TopLeft="295,103">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.5,64"
+              Start="0,0"
+              End="41.5,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="4,32" />
+                  <mssgle:LineSegment
+                    End="37.5,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.5,32"
+                    Point2="41.5,32"
+                    Point3="41.5,36" />
+                  <mssgle:LineSegment
+                    End="41.5,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Full or First\SalesOrderHeader\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Full or First\SalesOrderHeader\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

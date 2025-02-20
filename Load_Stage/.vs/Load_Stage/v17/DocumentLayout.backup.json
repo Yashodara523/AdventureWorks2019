@@ -1,0 +1,84 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\Load_Stage\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BC6546A9-9337-43E4-A866-ABE4D6F936E4}|Load_Stage\\Load_Stage.dtproj|C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Package1.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{BC6546A9-9337-43E4-A866-ABE4D6F936E4}|Load_Stage\\Load_Stage.dtproj|solutionrelative:Load_Stage\\Package1.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC6546A9-9337-43E4-A866-ABE4D6F936E4}|Load_Stage\\Load_Stage.dtproj|C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Full_ETL.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{BC6546A9-9337-43E4-A866-ABE4D6F936E4}|Load_Stage\\Load_Stage.dtproj|solutionrelative:Load_Stage\\Full_ETL.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC6546A9-9337-43E4-A866-ABE4D6F936E4}|Load_Stage\\Load_Stage.dtproj|C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Increment_ETL.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{BC6546A9-9337-43E4-A866-ABE4D6F936E4}|Load_Stage\\Load_Stage.dtproj|solutionrelative:Load_Stage\\Increment_ETL.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC6546A9-9337-43E4-A866-ABE4D6F936E4}|Load_Stage\\Load_Stage.dtproj|C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Project.params||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{BC6546A9-9337-43E4-A866-ABE4D6F936E4}|Load_Stage\\Load_Stage.dtproj|solutionrelative:Load_Stage\\Project.params||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 1514,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Package1.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Package1.dtsx",
+              "RelativeDocumentMoniker": "Load_Stage\\Package1.dtsx",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Package1.dtsx [Design]",
+              "RelativeToolTip": "Load_Stage\\Package1.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-02-20T15:05:45.337Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Increment_ETL.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Increment_ETL.dtsx",
+              "RelativeDocumentMoniker": "Load_Stage\\Increment_ETL.dtsx",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Increment_ETL.dtsx [Design]",
+              "RelativeToolTip": "Load_Stage\\Increment_ETL.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-02-19T22:33:40.323Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Project.params [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Project.params",
+              "RelativeDocumentMoniker": "Load_Stage\\Project.params",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Project.params [Design]",
+              "RelativeToolTip": "Load_Stage\\Project.params [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-02-19T23:04:33.569Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Full_ETL.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Full_ETL.dtsx",
+              "RelativeDocumentMoniker": "Load_Stage\\Full_ETL.dtsx",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\Load_Stage\\Load_Stage\\Full_ETL.dtsx [Design]",
+              "RelativeToolTip": "Load_Stage\\Full_ETL.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-02-19T20:21:10.132Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
